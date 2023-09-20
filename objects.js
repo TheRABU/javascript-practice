@@ -1,4 +1,7 @@
-//singleton
+//singleton object
+// const tinderUser = new Object(
+
+//     )
 //Object.create constructor method,singleton uses
 
 //object literals
