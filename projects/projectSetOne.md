@@ -49,3 +49,30 @@ buttons.forEach(function (button) {
 });
 
 ```
+
+## Project 2
+
+```javascript
+// select input field, button BUT There's FORM so we have to select form
+// addEventListener on click even
+// onclick button => execute function to calculate
+// if we select the height first without form then it will store an empty value.
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const height = parseInt(document.querySelector("#height").value);
+  const weight = parseInt(document.querySelector("#weight").value);
+  const results = document.querySelector("#results");
+
+  if (height === "" || height < 0 || isNaN(height)) {
+    results.innerHTML = "Please give a valid height";
+  } else if (weight === "" || weight < 0 || isNaN(weight)) {
+    results.innerHTML = "Please give a valid weight";
+  } else {
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    // show the result on screen
+    results.innerHTML = `<span>${bmi}</span>`;
+  }
+});
+```
