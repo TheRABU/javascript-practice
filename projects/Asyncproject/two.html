@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai aur code series</title>
+  </head>
+  <body>
+    <h1>Async Javascript</h1>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const sayName = function () {
+      console.log("Hello");
+    };
+    const changeText = function () {
+      document.querySelector("h1").innerHTML =
+        "You clicked the stop button so i had to change the text";
+    };
+    //setTimeout is a function which takes two arguments first is a function and second is time in milliseconds after which the function will be executed once only
+    const changeMe = setTimeout(changeText, 2000);
+
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearTimeout(changeMe);
+      console.log("You clicked the stop button");
+    });
+  </script>
+</html>

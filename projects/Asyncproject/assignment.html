@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chai aur code series</title>
+  </head>
+  <body>
+    <h1>Async Javascript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // Assignment is to when the button is clicked it should start printing console.log
+    // and when stop button clicked it should stop..
+    // let IntervalId;
+
+    // function changeText() {
+    //   // check if an interval has already been set up
+    //   if (!IntervalId) {
+    //     IntervalId = setInterval(flashText, 1000);
+    //   }
+    // }
+
+    // function flashText() {
+    //   const changedText = (document.querySelector("h1").innerHTML =
+    //     "text changed, and some , random text coming..");
+    // }
+
+    // function stopText() {
+    //   clearInterval(IntervalId);
+    //   IntervalId = null;
+    // }
+
+    // document.getElementById("start").addEventListener("click", changeText);
+    // document.getElementById("stop").addEventListener("click", stopText);
+
+    /// another
+    const start = document.querySelector("#start");
+    const stop = document.querySelector("#stop");
+
+    let interval;
+
+    const sayName = (name) => {
+      console.log(name, Date.now());
+    };
+
+    start.addEventListener("click", function () {
+      console.log("You have clicked start so i had to change the text");
+      interval = setInterval(sayName, 1000, "Rabbi");
+    });
+
+    stop.addEventListener("click", function () {
+      clearInterval(interval);
+      console.log("Stopped");
+    });
+  </script>
+</html>
