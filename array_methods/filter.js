@@ -133,3 +133,104 @@ const formattedEvents = eventListAccordingtoDate.map((event) => {
 });
 
 console.log(`Events within date range: ${formattedEvents.join(", ")}`);
+
+// E-commerce Platform: Displaying products to a user based on their preferences and purchase history.
+const productsEcommerce = [
+  {
+    productId: 1,
+    name: "Smartphone",
+    category: "Electronics",
+    price: 599.99,
+    brand: "TechCo",
+    preferences: ["Gadgets", "Electronics"],
+    purchaseHistory: ["Smartphone", "Headphones"],
+  },
+  {
+    productId: 2,
+    name: "Running Shoes",
+    category: "Footwear",
+    price: 79.99,
+    brand: "Sportify",
+    preferences: ["Sports", "Fitness"],
+    purchaseHistory: ["Running Shoes", "Sports Apparel"],
+  },
+  {
+    productId: 3,
+    name: "Coffee Maker",
+    category: "Kitchen Appliances",
+    price: 129.99,
+    brand: "HomeBrew",
+    preferences: ["Home Appliances", "Kitchen"],
+    purchaseHistory: ["Coffee Maker", "Cookware"],
+  },
+];
+const currentUser = {
+  preferences: ["Sports", "Fitness"],
+  purchaseHistory: ["Running Shoes", "Sports Apparel"],
+};
+const userRecommendation = productsEcommerce.filter((products) => {
+  const hasCommonPreferences = products.preferences.some((p) =>
+    currentUser.preferences.includes(p)
+  );
+  const hasCommonPurchaseHistory = products.purchaseHistory.some((p) =>
+    currentUser.purchaseHistory.includes(p)
+  );
+  return hasCommonPreferences && hasCommonPurchaseHistory;
+});
+console.log(userRecommendation);
+
+// Social Media Feed: Displaying posts in a user's feed based on their interests and interactions.
+
+const posts = [
+  {
+    postId: 1,
+    content: "Exploring the great outdoors today! 🏞️ #NatureAdventure",
+    timestamp: "2023-04-10T08:30:00",
+    likes: 120,
+    userInterests: ["Travel", "Nature", "Adventure"],
+    userInteractions: [
+      "Commented on 'Mountain Sunset'",
+      "Liked 'Beach Vacation'",
+    ],
+  },
+  {
+    postId: 2,
+    content:
+      "New recipe alert! 🍲 Check out my latest creation in the kitchen. #CookingJoy",
+    timestamp: "2023-04-09T18:45:00",
+    likes: 85,
+    userInterests: ["Cooking", "Food", "Recipes"],
+    userInteractions: [
+      "Liked 'Healthy Smoothies'",
+      "Shared 'Quick Dinner Ideas'",
+    ],
+  },
+  {
+    postId: 3,
+    content: "Game night with friends! 🎲 #BoardGames",
+    timestamp: "2023-04-08T21:15:00",
+    likes: 50,
+    userInterests: ["Games", "Socializing", "Entertainment"],
+    userInteractions: [
+      "Commented on 'Video Game Recommendations'",
+      "Liked 'Movie Night'",
+    ],
+  },
+];
+const currentUserHistory = {
+  userInterests: ["Games", "Socializing", "Entertainment"],
+  userInteractions: [
+    "Commented on 'Video Game Recommendations'",
+    "Liked 'Movie Night'",
+  ],
+};
+const userRecommendationBasedOnPost = posts.filter((post) => {
+  const hasCommonInterests = post.userInterests.some((c) => {
+    return currentUserHistory.userInterests.includes(c);
+  });
+  const hasCommonInteractions = post.userInteractions.some((c) => {
+    return currentUserHistory.userInteractions.includes(c);
+  });
+  return hasCommonInteractions && hasCommonInterests;
+});
+console.log(userRecommendationBasedOnPost);
